@@ -16,8 +16,8 @@
         </ul>
       <ul class="nav pull-right">
         <% if business_signed_in? %>
-        <li><%= link_to current_business.name, edit_user_registration_path, method: delete %></li>
-        <li><%= link_to "Log Out", destroy_business %></li>
+        <li><%= link_to current_business.name, edit_business_registration_path %></li>
+        <li><%= link_to "Log Out", destroy_business_session_path, :method => :delete %></li>
       <% else %>
           <li><%= link_to "Register", new_business_registration_path %></li>
         <li><%= link_to "Log in", new_business_session_path %></li>
@@ -28,8 +28,13 @@
   </div>
   
     <div class ="container">
-      <p class="notice"><%= notice %></p>                                                                                                                                                                   
-       <p class="alert"><%= alert %></p> 
+      <% flash.each do |type, message| %>
+        <div class="alert <%= flash_class type %>">
+          <button class="close" data-dismiss="alert">x</button>
+        <%= message %>
+      </div>
+      <% end %>
+  
   <%= yield %>
     </div>
 </body>
