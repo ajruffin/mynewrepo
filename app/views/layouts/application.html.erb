@@ -12,15 +12,15 @@
       <div class="container">
       <a href="#" class="brand">C5</a>
         <ul class="nav">
-          <li><%= link_to "All statuses", statuses_path %></li>
+          <li><%= link_to "All statuses", feed_path %></li>
         </ul>
       <ul class="nav pull-right">
         <% if business_signed_in? %>
         <li><%= link_to current_business.name, edit_business_registration_path %></li>
-        <li><%= link_to "Log Out", destroy_business_session_path, :method => :delete %></li>
+        <li><%= link_to "Log Out", logout_path %></li>
       <% else %>
-          <li><%= link_to "Register", new_business_registration_path %></li>
-        <li><%= link_to "Log in", new_business_session_path %></li>
+          <li><%= link_to "Register", register_path %></li>
+        <li><%= link_to "Log in", login_path %></li>
        <% end %>
         </ul>
       </div>
