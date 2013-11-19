@@ -1,6 +1,7 @@
 C5devV1::Application.routes.draw do
+  devise_for :businesses
   resources :statuses
-
+  root 'statuses#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
