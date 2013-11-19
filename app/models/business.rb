@@ -4,4 +4,5 @@ class Business < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :statuses
+  validates :name, presence: true, length: { minimum: 2}
 end
